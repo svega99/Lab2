@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 
 public class StartProduction {
     
-    
+    static Consumer co;
+	
     public static void main(String[] args) {
         
         Queue<Integer> queue=new LinkedBlockingQueue<>();
@@ -32,8 +33,14 @@ public class StartProduction {
             Logger.getLogger(StartProduction.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        co=new Consumer(queue);
+        co.start();
         
-        new Consumer(queue).start();
+    }
+    
+    public static Consumer getConsumer() {
+		return co;
+
     }
     
 
