@@ -17,6 +17,22 @@ Al ejecutarlo VisualVM nos muestra que ahora se esta haciendo uso de menos CPU.
 ![Alt text](img/1.2.1.PNG)
 
 3.	Make the producer now produce very fast, and the consumer consumes slow. Taking into account that the producer knows a Stock limit (how many elements he should have, at most in the queue), make that limit be respected. Review the API of the collection used as a queue to see how to ensure that this limit is not exceeded. Verify that, by setting a small limit for the 'stock', there is no high CPU consumption or errors.
+	Hacemos el productor mas rapido que el consumidor
+	![Alt text](img/1.3.1.PNG)
+	![Alt text](img/1.3.2.PNG)
+	
+	Ponemos un limite de stock de 10
+	
+	![Alt text](img/1.3.3.PNG)
+	
+	La salida ahora luce asi
+	
+	![Alt text](img/1.3.4.PNG)
+	
+	
+	El uso de CPU sigue siendo el mismo
+	
+	![Alt text](img/1.3.5.PNG)
 
 
 ##Part II
