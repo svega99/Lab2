@@ -1,8 +1,9 @@
 # Immortal Case
 
-##Part I - Before finishing class
+## Part I - Before finishing class
 Thread control with wait/notify. Producer/consumer
 1.	Check the operation of the program and run it. While this occurs, run jVisualVM and check the CPU consumption of the corresponding process. Why is this consumption? Which is the responsible class? 
+	
 	Se da este tipo de consumo porque el productor siempre espera cierto tienpo antes de producir, mientras que el consumidor siempre que la cola este llena consume.
 	
 ![Alt text](img/1.1.PNG)
@@ -17,6 +18,7 @@ Al ejecutarlo VisualVM nos muestra que ahora se esta haciendo uso de menos CPU.
 ![Alt text](img/1.2.1.PNG)
 
 3.	Make the producer now produce very fast, and the consumer consumes slow. Taking into account that the producer knows a Stock limit (how many elements he should have, at most in the queue), make that limit be respected. Review the API of the collection used as a queue to see how to ensure that this limit is not exceeded. Verify that, by setting a small limit for the 'stock', there is no high CPU consumption or errors.
+	
 	Hacemos el productor mas rapido que el consumidor
 	![Alt text](img/1.3.1.PNG)
 	![Alt text](img/1.3.2.PNG)
@@ -35,7 +37,7 @@ Al ejecutarlo VisualVM nos muestra que ahora se esta haciendo uso de menos CPU.
 	![Alt text](img/1.3.5.PNG)
 
 
-##Part II
+## Part II
 Synchronization and Dead-Locks.
 
 1.	Review the “highlander-simulator” program, provided in the edu.eci.arsw.highlandersim package. This is a game in which:
