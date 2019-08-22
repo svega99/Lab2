@@ -52,6 +52,7 @@ Synchronization and Dead-Locks.
 3.	Run the application and verify how the ‘pause and check’ option works. Is the invariant fulfilled?
 
 	La invariante no se cumple.
+	
 	![Alt text](img/3.1.PNG)
 	![Alt text](img/3.2.PNG)
 	
@@ -68,6 +69,7 @@ Synchronization and Dead-Locks.
 5.	Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
 
 	La invariante sigue sin cumplirse.
+	
 	![Alt text](img/5.1.PNG)
 	![Alt text](img/5.2.PNG)
 	
