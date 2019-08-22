@@ -30,6 +30,18 @@ public class Immortal extends Thread {
     public void run() {
 
         while (true) {
+        	
+        	synchronized (this) {
+                if (ControlFrame.isPausa()) {
+                    try {
+                    	wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+                }
+        	}
+        	
+        	
             Immortal im;
 
             int myIndex = immortalsPopulation.indexOf(this);
@@ -54,7 +66,11 @@ public class Immortal extends Thread {
         }
 
     }
-
+    
+    public synchronized void renaudar(){
+        this.notify();
+    }
+    
     public void fight(Immortal i2) {
 
         if (i2.getHealth() > 0) {

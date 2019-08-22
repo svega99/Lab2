@@ -46,9 +46,32 @@ Synchronization and Dead-Locks.
 	3.	Each player permanently attacks some other immortal. The one who first attacks subtracts M life points from his opponent, and increases his own life points by the same amount. 
 	4.	The game could never have a single winner. Most likely, in the end there are only two left, fighting indefinitely by removing and adding life points. 
 2.	Review the code and identify how the functionality indicated above was implemented. Given the intention of the game, an invariant should be that the sum of the life points of all players is always the same (of course, in an instant of time in which a time increase / reduction operation is not in process ). For this case, for N players, what should this value be?
+
+	El valor del invariante siempre deberia ser la "DEFAULT_IMMORTAL_HEALTH" por el numero de inmortales.
+
 3.	Run the application and verify how the ‘pause and check’ option works. Is the invariant fulfilled?
+
+	La invariante no se cumple.
+	![Alt text](img/3.1.PNG)
+	![Alt text](img/3.2.PNG)
+	
 4.	A first hypothesis that the race condition for this function (pause and check) is presented is that the program consults the list whose values ​​it will print, while other threads modify their values. To correct this, do whatever is necessary so that, before printing the current results, all other threads are paused. Additionally, implement the ‘resume’ option.
+
+	Para pausar el programa creamos una nueva variable a la clase principal llamada **Pausa** para que los hilos sepan si estan en pausa o no. Cuando se este en pausa cada hilo invocara un wait.
+	![Alt text](img/4.1.PNG)
+	![Alt text](img/4.2.PNG)
+
+	Para renaudar el programa cambiamos la variable **Pausa** a falso y se le notifica a cada hilo.
+	![Alt text](img/4.3.PNG)
+	![Alt text](img/4.4.PNG)
+
 5.	Check the operation again (click the button many times). Is the invariant fulfilled or not ?.
+
+	La invariante sigue sin cumplirse.
+	![Alt text](img/5.1.PNG)
+	![Alt text](img/5.2.PNG)
+	
+
 6.	Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
 7.	After implementing your strategy, start running your program, and pay attention to whether it comes to a halt. If so, use the jps and jstack programs to identify why the program stopped.
 8.	Consider a strategy to correct the problem identified above (you can review pages 206 and 207 of Java Concurrency in Practice again).
