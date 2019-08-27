@@ -29,7 +29,8 @@ public class Immortal extends Thread {
 
     public void run() {
 
-        while (true) {
+        while (true && !ControlFrame.isStop()) {
+        	
         	
         	synchronized (this) {
                 if (ControlFrame.isPausa()) {
@@ -41,6 +42,8 @@ public class Immortal extends Thread {
                 }
         	}
         	
+        	
+
         	
             Immortal im;
 

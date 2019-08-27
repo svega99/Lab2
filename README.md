@@ -113,3 +113,16 @@ Synchronization and Dead-Locks.
 	1.	Analyzing the simulation operation scheme, could this create a race condition? Implement the functionality, run the simulation and see what problem arises when there are many 'immortals' in it. Write your conclusions about it in the file ANSWERS.txt. 
 	2.	Correct the previous problem WITHOUT using synchronization, since making access to the shared list of immortals sequential would make simulation extremely slow. 
 11.	To finish, implement the STOP option.
+
+	Se añade la funcion de stop con un mensaje adicional que nos informa que el programa se ha detenido.
+	
+	![Alt text](img/10.1.PNG)
+	
+	Los hilos no correran si el programa se encuentra en **STOP**
+	
+	![Alt text](img/10.2.PNG)
+	
+	Se comprueba que el programa se detiene satisfactoriamente.
+	
+	![Alt text](img/10.PNG)
+	

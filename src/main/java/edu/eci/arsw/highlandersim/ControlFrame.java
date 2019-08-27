@@ -37,7 +37,7 @@ public class ControlFrame extends JFrame {
     private JTextField numOfImmortals;
     
     private static boolean Pausa=false;
-
+    private static boolean Stop=false;
 
     /**
      * Launch the application.
@@ -72,7 +72,9 @@ public class ControlFrame extends JFrame {
         final JButton btnStart = new JButton("Start");
         btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	Stop=false;
 
+            	
                 immortals = setupInmortals();
 
                 if (immortals != null) {
@@ -130,6 +132,22 @@ public class ControlFrame extends JFrame {
         JButton btnStop = new JButton("STOP");
         btnStop.setForeground(Color.RED);
         toolBar.add(btnStop);
+        
+        btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Stop=true;
+                btnResume.setEnabled(false);
+                btnPauseAndCheck.setEnabled(false);
+                int sum = 0;
+                for (Immortal im : immortals) {
+                    sum += im.getHealth();
+                }
+
+                statisticsLabel.setText("<html>Program stopped<br>Health sum:"+ sum);
+                
+            }
+        });
+        
 
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -137,6 +155,10 @@ public class ControlFrame extends JFrame {
         output = new JTextArea();
         output.setEditable(false);
         scrollPane.setViewportView(output);
+        
+        
+   
+
         
         
         statisticsLabel = new JLabel("Immortals total health:");
@@ -171,6 +193,14 @@ public class ControlFrame extends JFrame {
 
 	public static void setPausa(boolean pausa) {
 		Pausa = pausa;
+	}
+
+	public static boolean isStop() {
+		return Stop;
+	}
+
+	public static void setStop(boolean stop) {
+		Stop = stop;
 	}
 
 
