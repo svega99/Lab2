@@ -87,7 +87,28 @@ Synchronization and Dead-Locks.
 	![Alt text](img/7.1.PNG)
 
 8.	Consider a strategy to correct the problem identified above (you can review pages 206 and 207 of Java Concurrency in Practice again).
+
+	Se decide sincronizar los hilos por el orden en el que se encuentren.
+	
+	![Alt text](img/8.1.PNG)
+
 9.	Once the problem is corrected, rectify that the program continues to function consistently when 100, 1000 or 10000 immortals are executed. If in these large cases the invariant begins to be breached again, you must analyze what was done in step 4.
+
+	Con lo del punto anterior ya hecho, podemos probar que la invariante se sigue cumpliendo con 100 inmortales:
+	
+	![Alt text](img/9.100.1.PNG)
+	![Alt text](img/9.100.2.PNG)
+	
+	Con 1000 inmortales:
+	
+	![Alt text](img/9.1000.1.PNG)
+	![Alt text](img/9.1000.2.PNG)
+	
+	Con 10000 inmortales:
+	
+	![Alt text](img/9.10000.1.PNG)
+	![Alt text](img/9.10000.2.PNG)
+
 10.	An annoying element for the simulation is that at a certain point in it there are few living 'immortals' making failed fights with 'immortals' already dead. It is necessary to suppress the immortal dead of the simulation as they die. 
 	1.	Analyzing the simulation operation scheme, could this create a race condition? Implement the functionality, run the simulation and see what problem arises when there are many 'immortals' in it. Write your conclusions about it in the file ANSWERS.txt. 
 	2.	Correct the previous problem WITHOUT using synchronization, since making access to the shared list of immortals sequential would make simulation extremely slow. 
