@@ -75,7 +75,17 @@ Synchronization and Dead-Locks.
 	
 
 6.	Identify possible critical regions in regards to the fight of the immortals. Implement a blocking strategy that avoids race conditions. Remember that if you need to use two or more ‘locks’ simultaneously, you can use nested synchronized blocks:
+
+	Se identifica la zona critica en el momento en que dos inmortales pelean y uno le trata de quitar la salud a otro.
+	
+	![Alt text](img/6.PNG)
+
 7.	After implementing your strategy, start running your program, and pay attention to whether it comes to a halt. If so, use the jps and jstack programs to identify why the program stopped.
+
+	La invariante se mantiene pero ahora se presenta un deadlock y el programa se detiene sin siquiera pausarlo.
+	
+	![Alt text](img/7.1.PNG)
+
 8.	Consider a strategy to correct the problem identified above (you can review pages 206 and 207 of Java Concurrency in Practice again).
 9.	Once the problem is corrected, rectify that the program continues to function consistently when 100, 1000 or 10000 immortals are executed. If in these large cases the invariant begins to be breached again, you must analyze what was done in step 4.
 10.	An annoying element for the simulation is that at a certain point in it there are few living 'immortals' making failed fights with 'immortals' already dead. It is necessary to suppress the immortal dead of the simulation as they die. 
