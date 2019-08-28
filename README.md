@@ -2,6 +2,14 @@
 
 ## Part I - Before finishing class
 Thread control with wait/notify. Producer/consumer
+
+### Compile and run instructions.
+
+Para compilar y ejecutar la primera parte es necesario hacer **mvn package** y despues **mvn exec:java -Dexec.mainClass="edu.eci.arst.concprg.prodcons.StartProduction"** desde la ruta **Lab2/**
+
+	![Alt text](img/1.compilar.1.PNG)
+	![Alt text](img/1.compilar.2.PNG)
+
 1.	Check the operation of the program and run it. While this occurs, run jVisualVM and check the CPU consumption of the corresponding process. Why is this consumption? Which is the responsible class? 
 	
 	Se da este tipo de consumo porque el productor siempre espera cierto tienpo antes de producir, mientras que el consumidor siempre que la cola este llena consume.
@@ -39,6 +47,12 @@ Al ejecutarlo VisualVM nos muestra que ahora se esta haciendo uso de menos CPU.
 
 ## Part II
 Synchronization and Dead-Locks.
+
+### Compile and run instructions.
+
+Ya habiendo compilado la parte anterior con **mvn package** se ejecuta esta con **mvn exec:java -Dexec.mainClass="edu.eci.arsw.highlandersim.ControlFrame"** desde la misma ruta.
+
+	![Alt text](img/2.compilar.1.PNG)
 
 1.	Review the “highlander-simulator” program, provided in the edu.eci.arsw.highlandersim package. This is a game in which:
 	1.	You have N immortal players. 
